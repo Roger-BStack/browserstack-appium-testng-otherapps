@@ -1,0 +1,12 @@
+.idea/
+.classpath
+.project
+.settings/
+target/
+logs/
+log/
+local.log
+browserstack.err
+.gradle/
+build/
+.DS_Store

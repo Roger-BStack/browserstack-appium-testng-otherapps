@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id "com.browserstack.gradle-sdk" version "1.1.2"
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    testImplementation 'org.testng:testng:7.5'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.13.0'
+    implementation 'io.appium:java-client:8.6.0'
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation 'com.browserstack:browserstack-java-sdk:1.75.0'
+    implementation 'junit:junit:4.13'
+}
+
+group = 'com.browserstack'
+version = '1.0-SNAPSHOT'
+description = 'browserstack-appium-testng-otherapps'
+sourceCompatibility = '1.8'
+
+def browserstackSDKArtifact = configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find { it.name == 'browserstack-java-sdk' }
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    systemProperties = System.properties
+}
+
+task otherAppsTest(type: Test) {
+    useTestNG() {
+        dependsOn cleanTest
+        useDefaultListeners = true
+        suites "src/test/resources/com/browserstack/otherapps.testng.xml"
+        jvmArgs "-javaagent:${browserstackSDKArtifact.file}"
+    }
+}
