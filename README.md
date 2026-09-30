@@ -35,7 +35,7 @@ The test launches the **Wikipedia** app (`WikipediaSample-2.5.apk`) as the prima
 - Java 11+
 - Maven **or** Gradle
 - A [BrowserStack App Automate](https://app-automate.browserstack.com/) account
-- Your primary app and any `otherApps` already uploaded to BrowserStack (see [Upload an app](https://www.browserstack.com/docs/app-automate/appium/upload-app))
+- Your primary app and any `otherApps` already uploaded to BrowserStack (see [Upload an app](https://www.browserstack.com/docs/app-automate/appium/getting-started/java/integrate-your-tests?fw-lang=java#:~:text=%3C/dependencies%3E-,Upload%20app,-Upload%20your%20Android))
 
 ---
 
@@ -154,6 +154,4 @@ The response contains the `app_url` (`bs://...`) to use in `otherApps`.
 
 ## References
 
-- [BrowserStack otherApps documentation](https://www.browserstack.com/docs/app-automate/appium/other-apps)
-- [BrowserStack Java SDK](https://www.browserstack.com/docs/automate/selenium/sdk-config)
 - [Appium Java Client](https://github.com/appium/java-client)
